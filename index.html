@@ -1,27 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crystal Clicker</title>
-  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8" />
+
 </head>
+
 <body>
-  <div id="clickerContainer">
-    <h1>Crystal Clicker</h1>
-    <p>Money: <span id="money">0</span></p>
-    <!-- Replace the button with an image of a cookie -->
-    <img src="cookie.png" alt="Cookie" id="cookie" onclick="clickCookie()">
-  </div>
+  <!-- id="container" is new -->
+  <div class="container" id="container">
+    <p>
+      <h1>My clicker game</h1>
+    </p>
+    
+    <button onclick="addScore()" class="button">Click me!</button>
   
-  <div id="shopContainer">
-    <h2>Shop</h2>
-    <p>Money per Click: <span id="mpc">1</span></p>
-    <button onclick="upgradeMPC()">Upgrade MPC (Cost: <span id="mpcCost">10</span> money)</button>
-    <p>Money per Second: <span id="mps">0</span></p>
-    <button onclick="buyMPS()">Buy MPS (Cost: <span id="mpsCost">50</span> money)</button>
+    <hr>
+  
+  <a href=""><img href=""></a>
+  
+    Total money: <span id="score">0</span><br/>
+  Money per second: <span id="autoScore">0</span>
+    
+    <hr>
+    My awesome shop
+    <p>
+      <table style="width: 100%;">
+        <tr>
+          <td> +1 click per click </td>
+          <td> price <span id="item1">10</span> </td>
+          <td>
+            <button class="button" onclick="buyClick()">Buy</button>
+          </td>
+        </tr>
+        <tr>
+          <!-- New -->
+          <td> New background color </td>
+          <td> price <span id="background">250</span> </td>
+          <td>
+            <button class="button" onclick="buyBackground()">Buy</button>
+          </td>
+          <!-- No more new -->
+        </tr>
+        <tr id="surprise">
+          <td> AutoClick </td>
+          <td> price <span id="autoClick">50</span> </td>
+          <td>
+            <button class="button" onclick="buyAutoClick()">Buy</button>
+          </td>
+        </tr>
+      </table>
+    </p>
+  <!-- New -->
+  <p>
+    <button onclick="bg('#F44336')" class="button-red invisible" id="btn-1">Red</button>
+    <button onclick="bg('#4CAF50')" class="button-green invisible" id="btn-2">Green</button>
+    <button onclick="bg('#3F51B5')" class="button-blue invisible" id="btn-3">Blue</button>
+  </p>
+  <!-- No more new -->
   </div>
 
-  <script src="script.js"></script>
+<iframe src="https://www.openprocessing.org/sketch/691519/embed/" width="1366" height="575"></iframe>
+
+  <script src="sketch.js"></script>
 </body>
+
 </html>
