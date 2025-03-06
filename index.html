@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Element Clicker</title>
+    <title>Crystal Clicker</title>
     <style>
         body {
             background: #0a192f;
@@ -22,7 +22,7 @@
             border-radius: 15px;
             padding: 30px 50px;
             font-size: 2em;
-            color: #caf0f8;
+            color: #6b00d7;
             cursor: pointer;
             margin: 20px;
             box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
@@ -35,11 +35,11 @@
         }
 
         .shopButton {
-            background: #1d3557;
-            border: 2px solid #457b9d;
+            background: #190087;
+            border: 2px solid #d391fa;
             border-radius: 10px;
             padding: 15px 25px;
-            color: #a8dadc;
+            color: #a23oed;
             cursor: pointer;
             margin: 10px;
             transition: background 0.2s;
@@ -56,7 +56,7 @@
             margin: 20px 0;
         }
 
-        .elementSymbol {
+        .crystalSymbol {
             font-size: 3em;
             text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
         }
@@ -64,15 +64,15 @@
 </head>
 <body>
     <div id="gameContainer">
-        <h1>Element Clicker</h1>
+        <h1>Crystal Clicker</h1>
         <div class="stats">
-            <h2>Atoms: <span id="atoms">0</span></h2>
-            <h3>Current Element: <span id="currentElement">Hydrogen</span></h3>
-            <h3>Next Element Cost: <span id="elementCost">100</span> atoms</h3>
+            <h2>Shards: <span id="atoms">0</span></h2>
+            <h3>Current Stone: <span id="currentCrystal">Lapis</span></h3>
+            <h3>Next Crystal Cost: <span id="crystalCost">100</span> atoms</h3>
         </div>
 
-        <button class="elementButton" onclick="clickElement()">
-            <div class="elementSymbol" id="currentSymbol">H</div>
+        <button class="crystalButton" onclick="clickElement()">
+            <div class="crystalSymbol" id="currentSymbol"><img</div>
         </button>
 
         <div class="stats">
@@ -97,21 +97,21 @@
         let autoClickerCost = 50;
 
         const elements = [
-            { name: "Hydrogen", symbol: "H", cost: 100 },
-            { name: "Helium", symbol: "He", cost: 500 },
-            { name: "Lithium", symbol: "Li", cost: 1000 },
-            { name: "Beryllium", symbol: "Be", cost: 5000 },
-            { name: "Boron", symbol: "B", cost: 10000 },
-            { name: "Carbon", symbol: "C", cost: 50000 }
+            { name: "Lapis", symbol: "Lapis", cost: 100 },
+            { name: "Amethyst", symbol: "Amethyst", cost: 500 },
+            { name: "Ruby", symbol: "Ruby", cost: 1000 },
+            { name: "Ice Shard", symbol: "ICE", cost: 5000 },
+            { name: "Uranium", symbol: "U", cost: 10000 },
+            { name: "Pure Energy", symbol: "?", cost: 50000 }
         ];
 
         function updateDisplay() {
-            document.getElementById('atoms').textContent = formatNumber(atoms);
-            document.getElementById('currentElement').textContent = elements[currentElementIndex].name;
-            document.getElementById('currentSymbol').textContent = elements[currentElementIndex].symbol;
-            document.getElementById('nextElementCost').textContent = formatNumber(elementCost);
-            document.getElementById('autoClickers').textContent = autoClickers;
-            document.getElementById('autoClickerCost').textContent = formatNumber(autoClickerCost);
+            document.getCrystalById('atoms').textContent = formatNumber(atoms);
+            document.getCrystalById('currentElement').textContent = elements[currentElementIndex].name;
+            document.getCrystalById('currentSymbol').textContent = elements[currentElementIndex].symbol;
+            document.getCrystalById('nextElementCost').textContent = formatNumber(elementCost);
+            document.getCrystalById('autoClickers').textContent = autoClickers;
+            document.getCrystalById('autoClickerCost').textContent = formatNumber(autoClickerCost);
         }
 
         function clickElement() {
@@ -120,17 +120,17 @@
         }
 
         function buyElement() {
-            if (atoms >= elementCost) {
-                atoms -= elementCost;
-                currentElementIndex = Math.min(currentElementIndex + 1, elements.length - 1);
-                elementCost = elements[currentElementIndex].cost;
+            if (atoms >= crystalCost) {
+                atoms -= crystalCost;
+                currentCrystalIndex = Math.min(currentElementIndex + 1, elements.length - 1);
+                CrystalCost = elements[currentCrystalIndex].cost;
                 updateDisplay();
             }
         }
 
         function buyAutoClicker() {
-            if (atoms >= autoClickerCost) {
-                atoms -= autoClickerCost;
+            if (shards >= autoClickerCost) {
+                shards -= autoClickerCost;
                 autoClickers++;
                 autoClickerCost = Math.round(autoClickerCost * 1.5);
                 updateDisplay();
@@ -143,7 +143,7 @@
 
         // Auto-clicker loop
         setInterval(() => {
-            atoms += autoClickers * Math.pow(2, currentElementIndex);
+            shards += autoClickers * Math.pow(2, currentCrystalIndex);
             updateDisplay();
         }, 1000);
 
