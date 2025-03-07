@@ -120,8 +120,8 @@
         }
 
         function buyElement() {
-            if (atoms >= elementCost) {
-                atoms -= elementCost;
+            if (atoms >= crystalCost) {
+                atoms -= crystalCost;
                 currentElementIndex = Math.min(currentElementIndex + 1, elements.length - 1);
                 elementCost = elements[currentElementIndex].cost;
                 updateDisplay();
