@@ -1,4 +1,6 @@
 # Crystal-Clicker-V1-Beta-
-This is a work in progress.
+https://astronomyf7m.github.io/Crystal-Clicker-V1-Beta-/
 
-Please Dont Worry About It Until Done
+This Lowkey SUCKS Rn.
+But play if you want....
+
